@@ -12,12 +12,8 @@ export const routes = [
         Header: Header
     } },
 
-    { path: '/stocks', name: 'stocks', component: Stocks, children: [
-        { path: '/:id', component: Stock }
-    ] },
+    { path: '/portfolio', name: 'portfolio', component: Portfolio },
 
-    { path: '/portfolio', name: 'portfolio', component: Portfolio, children: [
-        { path: '/:id', component: PortfolioStock }
-    ] },
+    { path: '/stocks', name: 'stocks', component: Stocks },    
 
 ];
