@@ -20,7 +20,7 @@
                 <button
                     class="btn btn-success"
                     @click="buyStock"
-                    :disabled="quantity <= 0 || !Number.isInteger(quantity)">
+                    :disabled="quantity <= 0 || !isInteger(quantity)">
                     Buy
                 </button>
             </div>
@@ -46,6 +46,13 @@
 
                 console.log(order);
                 this.quantity = null;
+            },
+            isInteger(value) {
+                if (isNaN(value))
+                    return false;
+
+                var number = parseFloat(value);
+                return number === Math.trunc(number);
             }
         }
     }
