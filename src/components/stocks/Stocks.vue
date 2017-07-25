@@ -14,7 +14,7 @@
             appStock: Stock
         },
         computed: {
-            ...mapGetters('stocks', ['stocks'])
+            ...mapGetters(/*'stocks',*/ ['stocks'])
         }        
     }
 </script>

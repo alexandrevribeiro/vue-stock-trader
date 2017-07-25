@@ -11,6 +11,7 @@ const mutations = {
         } else {
             state.stocks.push({
                 id: stockId,
+                price: stockPrice,
                 quantity: quantity
             });
         }
@@ -30,8 +31,11 @@ const mutations = {
 };
 
 const actions = {
-    sellStoks({commit}, order) {
+    sellStocks({commit}, order) {
         commit('SELL_STOCK', order);
+    },
+    buyStock({commit}, order) {
+        commit('BUY_STOCK', order);
     }
 };
 
@@ -39,7 +43,7 @@ const getters = {
     stockPortfolio(state, getters) {
         return state.stocks.map(stock => {
             // This "getters" refers to the main state getters
-            const record = getters.stocks.find(el.id == stockId);
+            const record = getters.stocks.find(el => el.id == stock.id);
             return {
                 id: stock.id,
                 quantity: stock.quantity,
@@ -54,6 +58,7 @@ const getters = {
 };
 
 export default {
+    // namespaced: true, // Makes this module auto-namespaced
     state,
     mutations,
     actions,

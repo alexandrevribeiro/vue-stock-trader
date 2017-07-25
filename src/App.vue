@@ -18,8 +18,8 @@
             appHeader: Header
         },
         methods: {
-            ...mapActions('stocks', [
-                'initStocks', // map 'this.initStocks()' to 'this.$store.dispatch('initStocks')'
+            ...mapActions(/*'stocks',*/ [
+                'initStocks', // map 'this.initStocks()' to 'this.$store.dispatch('stocks/initStocks')'
             ])
         },
         created() {

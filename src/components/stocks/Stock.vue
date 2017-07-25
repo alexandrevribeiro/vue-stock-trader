@@ -19,7 +19,7 @@
             <div class="pull-right">
                 <button
                     class="btn btn-success"
-                    @click="buyStock"
+                    @click="buy"
                     :disabled="quantity <= 0 || !isInteger(quantity)">
                     Buy
                 </button>
@@ -29,6 +29,9 @@
 </template>
 
 <script>
+
+    import { mapActions } from 'vuex';
+
     export default {
         props: ['stock'],
         data() {
@@ -37,15 +40,18 @@
             };
         },
         methods: {
-            buyStock() {
+            ...mapActions(/*'portfolio',*/ [
+                'buyStock', // map 'this.buyStock()' to 'this.$store.dispatch('portfolio/buyStock')'
+            ]),
+            buy() {
                 const order = {
                     stockId: this.stock.id,
                     stockPrice: this.stock.price,
                     quantity: this.quantity
                 };
-
-                console.log(order);
-                this.quantity = null;
+                // this.$store.dispatch('portfolio/buyStock', order);
+                this.buyStock(order);
+                this.quantity = 0;
             },
             isInteger(value) {
                 if (isNaN(value))

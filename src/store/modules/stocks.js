@@ -14,6 +14,8 @@ const mutations = {
 
 const actions = {
     buyStock: ({commit}, order) => {
+        // Commits the "BUY_STOCK" mutation of the "portfolio.js"
+        commit('BUY_STOCK', order);
     },
     initStocks: ({commit}) => {
         commit('SET_STOCKS', stocks);
@@ -30,7 +32,7 @@ const getters = {
 }
 
 export default {    
-    namespaced: true, // Makes this module auto-namespaced
+    // namespaced: true, // Makes this module auto-namespaced
     state,
     mutations,
     actions,
