@@ -4,6 +4,10 @@ import App from './App.vue';
 import { routes } from './routes';
 import store from './store/store';
 
+Vue.filter('currency', (value) => {
+  return `R$ ${value}`;
+});
+
 // Uses the vue-router middleware
 Vue.use(VueRouter);
 
